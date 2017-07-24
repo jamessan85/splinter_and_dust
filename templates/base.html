@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Splinter and Dust</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <div class="loggedin">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'home' %}">Splinter and Dust</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <div class="dropdown">
+          <a href="{% url 'home' %}"><button class="dropbtn">Home</button></a>
+      </div>
+      <div class="dropdown">
+          <a href="{% url 'home' %}"><button class="dropbtn">Products</button></a>
+      <div class="dropdown-content">
+        {% for c in collection %}
+        <a href="{% url 'collection' c.range %}">{{ c.range }}</a>
+        {% endfor %}
+      </div>
+      </div>
+      <div class="dropdown">
+          <a href="{% url 'home' %}"><button class="dropbtn">Companies</button></a>
+      <div class="dropdown-content">
+        {% for a in accountinfo %}
+        <a href="{% url 'companies' a.account_id %}">{{ a.company_name }}</a>
+        {% endfor %}
+      </div>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="dropdown">
+          <a href="{% url 'profile' %}"><button class="dropbtn">Account</button></a>
+        <div class="dropdown-content">
+        {% if user.user_type == 'T' %}
+        <a href="{% url 'new_product' %}">Upload new product</a>
+        <a href="{% url 'productsbyuser' %}">View/Edit Products</a>
+            {% for a in accountinfo %}
+                {% if user.id == a.account_id %}
+        <a href="{% url 'editaccountinfo' a.id %}">Edit Account Info</a>
+                {% endif %}
+            {% endfor %}
+         {% endif %}
+      </div>
+      </div>
+      <div class="dropdown">
+          <a href="{% url 'logout' %}"><button class="dropbtn">Logout</button></a>
+      </div>
+      {% else %}
+      <div class="dropdown">
+          <a href="{% url 'register' %}"><button class="dropbtn">Register</button></a>
+      </div>
+      <div class="dropdown">
+          <a href="{% url 'login' %}"><button class="dropbtn">Login</button></a>
+      </div>
+      {% endif %}
+    </ul>
+  {% if user.is_authenticated %}
+  <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
+  </div>
+  </div>
+  {% endif %}
+</nav>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for a in accountinfo %}
+        {% if user.id == a.account_id %}
+    <h2>Welcome! {{ a.company_name }}</h2>
+    <img src="/media/{{ a.company_banner }}">
+        {% endif %}
+    {% endfor %}
+    <p>You are logged in as {{ user.email }} </p>
+    <p>Your last log in was: {{ user.last_login }}</p>
+
+    {% if user.user_type == 'T' %}
+    <a href="{% url 'new_product' %}"><button type="submit" class="btn btn-info">Upload new products</button></a>
+    <a href="{% url 'productsbyuser' %}"><button type="submit" class="btn btn-info">View your products</button></a>
+         {% for a in accountinfo %}
+             {% if user.id == a.account_id %}
+    <a href="{% url 'editaccountinfo' a.id %}"><button type="submit" class="btn btn-info">Append account information</button></a>
+    <a href="{% url 'accountinformation' %}"><button type="submit" class="btn btn-info">Add account information</button></a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
