@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% block head_js %}{% endblock %}
     <meta charset="UTF-8">
     <title>Splinter and Dust</title>
 </head>
@@ -15,6 +18,9 @@
   <div class="loggedin">
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'home' %}">Splinter and Dust</a>
+      {% if user.is_authenticated %}
+        <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
+       {% endif %}
     </div>
     <ul class="nav navbar-nav">
       <div class="dropdown">
@@ -63,11 +69,8 @@
       </div>
       {% endif %}
     </ul>
-  {% if user.is_authenticated %}
-  <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
   </div>
   </div>
-  {% endif %}
 </nav>
 
 {% block content %}

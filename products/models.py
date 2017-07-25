@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import uuid
 from django.db import models
+from django.conf import settings
+from paypal.standard.forms import PayPalPaymentsForm
 
 
 # Create your models here.
@@ -22,7 +25,20 @@ class Product(models.Model):
     userid = models.IntegerField(null=True)
     range = models.CharField(max_length=15, choices=RANGE_CHOICES, null=True)
 
+    @property
+    def paypal_form(self):
+        paypal_dict = {
+            "business": settings.PAYPAL_RECEIVER_EMAIL,
+            "amount": self.price,
+            "currency": "GBP",
+            "item_name": self.title,
+            "invoice": "%s-%s" % (self.pk, uuid.uuid4()),
+            "notify_url": settings.PAYPAL_NOTIFY_URL,
+            "return_url": "%s/paypal-return" % settings.SITE_URL,
+            "cancel_return": "%s/paypal-cancel" % settings.SITE_URL
+        }
 
+        return PayPalPaymentsForm(initial=paypal_dict)
 
     def __unicode__(self):
         return self.title

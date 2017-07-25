@@ -83,4 +83,3 @@ def edit_product(request, edit_prod):
 #         userid = 7
 #         queryset = Product.objects.filter(userid__exact=userid)
 #         template_name = 'products/product_list.html'
-

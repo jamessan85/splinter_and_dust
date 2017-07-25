@@ -7,4 +7,3 @@ class EnterProductsForm(forms.ModelForm):
         model = Product
         fields = ('title', 'price', 'product_info', 'image', 'range')
 
-

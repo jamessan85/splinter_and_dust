@@ -13,11 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from products import views as products_views
 from tradelogins import views as tradelogin_views
 from django.views.static import serve
+from paypal.standard.ipn import urls as paypal_urls
+from paypal_store import views as paypal_views
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
@@ -41,4 +43,7 @@ urlpatterns = [
     url(r'^logout/$', tradelogin_views.logout, name='logout'),
     url(r'^profile/accountinfo/$', tradelogin_views.accountinformation, name='accountinformation'),
     url(r'^profile/accountinfo/edit/(?P<account_num>\d+)/$', tradelogin_views.editaccountinfo, name='editaccountinfo'),
+    url(r'^a-very-hard-to-guess-url/', include(paypal_urls)),
+    url(r'^paypal-return', paypal_views.paypal_return),
+    url(r'^paypal-cancel', paypal_views.paypal_cancel),
 ]

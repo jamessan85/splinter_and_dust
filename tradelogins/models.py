@@ -30,6 +30,7 @@ class User(AbstractUser):
         ('T','Trade'),
         ('C', 'Customer'),
     )
+    stripe_id = models.CharField(max_length=40, default='')
     user_type = models.CharField(max_length=2, choices=type_choices, default='C')
     objects = AccountUserManager()
 
