@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+     {% for a in accountinfo %}
+    <div class="container">
+     <div class="banner">
+         <a href="{% url 'companies' a.account_id %}"><img src="/media/{{ a.company_banner }}"></a>
+     </div>
+     <br>
+     </div>
+ {% endfor %}
+{% endblock %}

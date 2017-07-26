@@ -26,15 +26,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', products_views.product_display, name='home'),
     url(r'^home/collection/(?P<collection>\w+)/$', products_views.sort_by_collection, name='collection'),
+    url(r'^home/company/$', products_views.show_companies, name='companiesall'),
     url(r'^home/company/(?P<company>\d+)/$', products_views.sort_by_company, name='companies'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^media/banners/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
-    ########
-    # two views required for filter products by user and by all
-    url(r'^home/products/(?P<id>\d+)/$', products_views.product_detail),
-    url(r'^home/(?P<id>\d+)/$', products_views.product_detail),
-    ########
+    url(r'^home/products/(?P<id>\d+)/$', products_views.product_detail, name='productbyid'),
     url(r'^home/products/$', products_views.products_by_user, name='productsbyuser'),
+    url(r'^home/products/purchase/(?P<purchase>\d+)/$', products_views.purchase, name='purchase'),
     url(r'^home/products/edit/(?P<edit_prod>\d+)/$', products_views.edit_product, name='editproduct'),
     url(r'^register/$', tradelogin_views.register, name='register'),
     url(r'^profile/$', tradelogin_views.profile, name='profile'),

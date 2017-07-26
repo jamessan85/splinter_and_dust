@@ -9,10 +9,10 @@ from paypal.standard.forms import PayPalPaymentsForm
 # Create your models here.
 
 RANGE_CHOICES = [
-    ('Frames', 'Frames'),
-    ('Artwork', 'Artwork'),
-    ('Furniture', 'Furniture'),
-    ('Upcycled', 'Upcycled'),
+    ('frames', 'Frames'),
+    ('artwork', 'Artwork'),
+    ('furniture', 'Furniture'),
+    ('upcycled', 'Upcycled'),
 ]
 
 class Product(models.Model):
@@ -25,20 +25,20 @@ class Product(models.Model):
     userid = models.IntegerField(null=True)
     range = models.CharField(max_length=15, choices=RANGE_CHOICES, null=True)
 
-    @property
-    def paypal_form(self):
-        paypal_dict = {
-            "business": settings.PAYPAL_RECEIVER_EMAIL,
-            "amount": self.price,
-            "currency": "GBP",
-            "item_name": self.title,
-            "invoice": "%s-%s" % (self.pk, uuid.uuid4()),
-            "notify_url": settings.PAYPAL_NOTIFY_URL,
-            "return_url": "%s/paypal-return" % settings.SITE_URL,
-            "cancel_return": "%s/paypal-cancel" % settings.SITE_URL
-        }
-
-        return PayPalPaymentsForm(initial=paypal_dict)
+    # @property
+    # def paypal_form(self):
+    #     paypal_dict = {
+    #         "business": settings.PAYPAL_RECEIVER_EMAIL,
+    #         "amount": self.price,
+    #         "currency": "GBP",
+    #         "item_name": self.title,
+    #         "invoice": "%s-%s" % (self.pk, uuid.uuid4()),
+    #         "notify_url": settings.PAYPAL_NOTIFY_URL,
+    #         "return_url": "%s/paypal-return" % settings.SITE_URL,
+    #         "cancel_return": "%s/paypal-cancel" % settings.SITE_URL
+    #     }
+    #
+    #     return PayPalPaymentsForm(initial=paypal_dict)
 
     def __unicode__(self):
         return self.title
@@ -48,3 +48,4 @@ class Collection(models.Model):
 
     def __unicode__(self):
         return self.range
+

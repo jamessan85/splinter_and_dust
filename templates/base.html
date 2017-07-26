@@ -35,7 +35,7 @@
       </div>
       </div>
       <div class="dropdown">
-          <a href="{% url 'home' %}"><button class="dropbtn">Companies</button></a>
+          <a href="{% url 'companiesall' %}"><button class="dropbtn">Companies</button></a>
       <div class="dropdown-content">
         {% for a in accountinfo %}
         <a href="{% url 'companies' a.account_id %}">{{ a.company_name }}</a>

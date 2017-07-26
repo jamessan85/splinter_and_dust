@@ -3,9 +3,9 @@
     <div class="container">
 {% for p in product %}
         <div class="col-sm-3">
-            <img src="/media/{{ p.image }}" style="height:200px; width:280px" onclick="location.href={{ p.id }}">
+            <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}" style="height:200px; width:280px"></a>
             <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
-            <div>{{ p.paypal_form.sandbox }}</div>
+            <a href="{% url 'purchase' p.id %}"><button type="button" class="btn btn-default">Add to basket</button></a>
         </div>
 {% endfor %}
     </div>

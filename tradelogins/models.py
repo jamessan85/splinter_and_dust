@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.utils import timezone
 from django.conf import settings
+from products.models import Product
 
 # Create your models here
 
@@ -39,6 +40,12 @@ class AccountInfo(models.Model):
     company_name = models.CharField (max_length=25, null=True)
     company_banner = models.ImageField(upload_to="images/banners", blank=False, null=True)
     account = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user', null=True)
+    formstatus = models.CharField(max_length=2, default='D', null=True)
 
     def __unicode__(self):
         return self.company_name
+
+class Purchase(models.Model):
+    stripe_id = models.CharField(max_length=40, default='')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='product', null=True)
+    product = models.ForeignKey(Product, related_name='product', null=True)

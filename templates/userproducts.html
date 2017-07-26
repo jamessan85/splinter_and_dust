@@ -6,8 +6,6 @@
         <div class="col-sm-3">
             <img src="/media/{{ p.image }}" style="height:200px; width:280px" onclick="location.href={{ p.id }}">
             <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
-            <button type="button" class="btn btn-default">Quick Buy</button>
-            <button type="button" class="btn btn-default">Add to basket</button>
                {% if user.id == p.userid %}
             <a href="{% url 'editproduct' p.id %}"><button type="button" class="btn btn-default">Edit</button></a>
             {% endif %}

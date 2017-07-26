@@ -7,17 +7,25 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Product, Collection
-from .forms import EnterProductsForm
+from .forms import EnterProductsForm, ProductPurchaseForm
 from tradelogins.models import AccountInfo
+from django.contrib import messages, auth
 from django.views.generic.list import ListView
 from django.contrib import admin
+from django.conf import settings
+import datetime
+import stripe
 # Create your views here.
 
+stripe.api_key = settings.STRIPE_SECRET
 
 def sort_by_collection(request, collection):
     product = Product.objects.filter(range=collection)
     return render(request, 'collections.html', {'product':product})
 
+def show_companies(request):
+    accountinfo = AccountInfo.objects.all()
+    return render(request, 'companyhome.html', {'accountinfo': accountinfo})
 
 #### pass two models into one view to filter
 def sort_by_company(request, company):
@@ -78,6 +86,44 @@ def edit_product(request, edit_prod):
     args.update(csrf(request))
 
     return render(request, 'enternewproduct.html', args)
+
+@login_required(login_url='/login/')
+def purchase(request, purchase):
+
+    product = get_object_or_404(Product,pk=purchase)
+
+    if request.method == 'POST':
+        form = ProductPurchaseForm(request.POST)
+        if form.is_valid():
+            purchase = form.save(commit=False)
+            purchase.user_id = request.user.id
+            purchase.product_id = product.id
+            purchase.save()
+            try:
+                customer = stripe.Charge.create(
+                    amount=int(product.price * 100),
+                    currency="GBP",
+                    description=product.title,
+                    card=form.cleaned_data['stripe_id'],
+                )
+                if customer.paid:
+                    form.save()
+                    return redirect(reverse('profile'))
+                else:
+                    messages.error(request, "We were unable to take a payment with that card!")
+            except stripe.error.CardError, e:
+                messages.error(request, "Your card was declined!")
+    else:
+        today = datetime.date.today()
+        form = ProductPurchaseForm()
+
+    args = {'form': form,
+            'publishable': settings.STRIPE_PUBLISHABLE,
+            'product': product,
+            }
+    args.update(csrf(request))
+
+    return render(request, 'products/purchase.html', args)
 
 # class UserProducts(ListView):
 #         userid = 7
