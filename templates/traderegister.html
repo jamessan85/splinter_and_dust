@@ -13,16 +13,18 @@
 {% endblock %}
 
 {% block content %}
+
   <form role="form" method="post" id="register-form" action="{% url 'register' %}">
     <div id="credit-card-errors" style="display:none">
       <div class="alert-message block-message error" id="stripe-error-message"></div>
     </div>
 
-    <legend>Create a new account</legend>
+    <legend>Create a new trade account </legend>
+      <p>Are you sure? There is a subscription fee of £9.99, if you want to register as a customer please click <a href="{% url 'custregister' %} ">here</a>, it's quick and free</p>
     {% csrf_token %}
     {{ form|as_bootstrap }}
     <div class="form-group">
-      <input class="btn btn-primary" id="validate_card_btn" name="commit" type="submit" value="Validate Credit Card">
+      <input class="btn btn-primary" id="validate_card_btn" name="commit" type="submit" value="Sign up and subscribe me">
     </div>
   </form>
 {% endblock %}

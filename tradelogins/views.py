@@ -6,7 +6,7 @@ from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import UpdateView
 from django.template.context_processors import csrf
-from tradelogins.forms import UserRegistrationForm, UserLoginForm, AccountInformation
+from tradelogins.forms import TradeRegistrationForm, UserLoginForm, AccountInformation, CustRegistrationForm
 from .models import User, AccountInfo
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -18,7 +18,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = TradeRegistrationForm(request.POST)
         if form.is_valid():
             try:
                 customer = stripe.Charge.create(
@@ -28,11 +28,15 @@ def register(request):
                     card=form.cleaned_data['stripe_id'],
                 )
                 if customer.paid:
+                    form.save(commit=False)
+                    form.user_type = 'T'
                     form.save()
                     user = auth.authenticate(email=request.POST.get('email'),
                                              password=request.POST.get('password1'))
                     if user:
                         auth.login(request, user)
+                        user.user_type = 'T'
+                        user.save()
                         messages.success(request, "You have successfully registered")
                         return redirect(reverse('profile'))
                     else:
@@ -43,12 +47,37 @@ def register(request):
                 messages.error(request, "Your card was declined!")
     else:
         today = datetime.date.today()
-        form = UserRegistrationForm()
+        form = TradeRegistrationForm()
 
     args = {'form': form, 'publishable': settings.STRIPE_PUBLISHABLE}
     args.update(csrf(request))
 
     return render(request, 'traderegister.html', args)
+
+
+def registercust(request):
+    if request.method == 'POST':
+        form = CustRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            user = auth.authenticate(email=request.POST.get('email'),
+                                     password=request.POST.get('password1'))
+
+            if user:
+                messages.success(request, "You have successfully registered")
+                return redirect(reverse('profile'))
+
+            else:
+                messages.error(request, "unable to log you in at this time!")
+
+    else:
+        form = CustRegistrationForm()
+
+    args = {'form': form}
+    args.update(csrf(request))
+
+    return render(request, 'custregister.html', args)
 
 def login(request):
     if request.method == 'POST':

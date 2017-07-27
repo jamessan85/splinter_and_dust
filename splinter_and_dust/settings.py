@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'products',
     'tradelogins',
     'django_forms_bootstrap',
-    'paypal.standard.ipn',
-    'paypal_store'
 ]
 
 MIDDLEWARE = [
@@ -73,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'products.context_processors.collection',
                 'products.context_processors.accountinfo',
+                'products.context_processors.purchase',
             ],
         },
     },

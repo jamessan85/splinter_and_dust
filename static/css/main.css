@@ -24,7 +24,7 @@
 
 h1 {
     margin-top: -10px;
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Kanit', cursive;
 }
 
 p {
@@ -97,4 +97,115 @@ body {
     margin: 10px;
     border-radius: 10px;
     background-color: red;
+}
+
+.image-logo {
+    padding: 0px;
+}
+
+.blurb {
+    padding: 50px 0px;
+}
+
+
+
+.flexbox {
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.flexy {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.image{
+    position: relative;
+    width: 250px;
+}
+
+
+.companyblurb {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: white;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.7);
+    transition: width 2s;
+}
+
+
+.image:hover .companyblurb {
+    display: block;
+    width: 100%;
+}
+
+.mainpic {
+    padding: 10px;
+}
+
+.containernav {
+    width: 100%;
+    background-color: #f8f8f8 ;
+}
+
+
+.navibar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.profilesquare {
+        display: none;
+    }
+
+.profilelong {
+        display: block;
+    }
+
+
+@media all and (max-width: 500px) {
+    .navibar {
+        /* On small screens, we are no longer using row direction but column */
+        flex-direction: column;
+        padding-left: 0px;
+        align-items: center;
+    }
+
+    .dropbtn {
+        border-bottom: 1px orange solid;
+        width: 100%;
+    }
+
+    .mainpic {
+        display: none;
+    }
+
+    .profilelong {
+        display: none;
+    }
+
+    .profilesquare {
+        display: block;
+        height: 300px;
+        width: 300px;
+    }
+
+    .containernav {
+        width: 100%;
+    }
+
+
 }

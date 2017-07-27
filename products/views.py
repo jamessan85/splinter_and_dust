@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Product, Collection
 from .forms import EnterProductsForm, ProductPurchaseForm
-from tradelogins.models import AccountInfo
+from tradelogins.models import AccountInfo, Purchase
 from django.contrib import messages, auth
 from django.views.generic.list import ListView
 from django.contrib import admin
@@ -98,6 +98,9 @@ def purchase(request, purchase):
             purchase = form.save(commit=False)
             purchase.user_id = request.user.id
             purchase.product_id = product.id
+            purchase.title = product.title
+            purchase.product_info = product.product_info
+            purchase.price = product.price
             purchase.save()
             try:
                 customer = stripe.Charge.create(
@@ -129,3 +132,9 @@ def purchase(request, purchase):
 #         userid = 7
 #         queryset = Product.objects.filter(userid__exact=userid)
 #         template_name = 'products/product_list.html'
+
+def products_bought(request, userid):
+    product = Product.objects.filter(userid=userid)
+    purchase = Purchase.objects.filter(user_id=userid)
+    ctx = {'purchase':purchase, 'product':product}
+    return render(request, 'products/productsbought.html', ctx)

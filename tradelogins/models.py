@@ -32,13 +32,15 @@ class User(AbstractUser):
         ('C', 'Customer'),
     )
     stripe_id = models.CharField(max_length=40, default='')
-    user_type = models.CharField(max_length=2, choices=type_choices, default='C')
+    user_type = models.CharField(max_length=2, choices=type_choices, default=' ')
     objects = AccountUserManager()
 
 class AccountInfo(models.Model):
 
     company_name = models.CharField (max_length=25, null=True)
     company_banner = models.ImageField(upload_to="images/banners", blank=False, null=True)
+    company_logo_square = models.ImageField(upload_to="images/logo_sqaure", blank=False, null=True)
+    company_blurb = models.TextField (max_length=1000, null=True)
     account = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user', null=True)
     formstatus = models.CharField(max_length=2, default='D', null=True)
 
@@ -49,3 +51,9 @@ class Purchase(models.Model):
     stripe_id = models.CharField(max_length=40, default='')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='product', null=True)
     product = models.ForeignKey(Product, related_name='product', null=True)
+    title = models.CharField(max_length=50, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    product_info = models.TextField(max_length=200, null=True)
+
+    def __unicode__(self):
+        return self.product

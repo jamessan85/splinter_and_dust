@@ -3,13 +3,13 @@ from django.contrib.auth.forms import UserCreationForm
 from tradelogins.models import User, AccountInfo
 from django.core.exceptions import ValidationError
 
-class UserRegistrationForm(UserCreationForm):
+class TradeRegistrationForm(UserCreationForm):
     MONTH_ABBREVIATIONS = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June',
         'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
     ]
     MONTH_CHOICES = list(enumerate(MONTH_ABBREVIATIONS, 1))
-    YEAR_CHOICES = [(i, i) for i in xrange(2015, 2036)]
+    YEAR_CHOICES = [(i, i) for i in xrange(2017, 2036)]
 
     credit_card_number = forms.CharField(label='Credit card number')
     cvv = forms.CharField(label='Security code (CVV)')
@@ -29,7 +29,7 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['user_type','email', 'password1', 'password2', 'stripe_id']
+        fields = ['email', 'password1', 'password2', 'stripe_id']
         exclude = ['username']
 
     def clean_password2(self):
@@ -43,7 +43,45 @@ class UserRegistrationForm(UserCreationForm):
         return password2
 
     def save(self, commit=True):
-        instance = super(UserRegistrationForm, self).save(commit=False)
+        instance = super(TradeRegistrationForm, self).save(commit=False)
+
+        # automatically set to email address to create a unique identifier
+        instance.username = instance.email
+
+        if commit:
+            instance.save()
+
+        return instance
+
+class CustRegistrationForm(UserCreationForm):
+
+    password1 = forms.CharField(
+        label='Password',
+        widget=forms.PasswordInput
+    )
+
+    password2 = forms.CharField(
+        label='Password Confirmation',
+        widget=forms.PasswordInput
+    )
+
+    class Meta:
+        model = User
+        fields = ['email', 'password1', 'password2']
+        exclude = ['username', 'user_type']
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 and password2 and password1 != password2:
+            message = "Passwords do not match"
+            raise ValidationError(message)
+
+        return password2
+
+    def save(self, commit=True):
+        instance = super(CustRegistrationForm, self).save(commit=False)
 
         # automatically set to email address to create a unique identifier
         instance.username = instance.email
@@ -61,5 +99,5 @@ class AccountInformation(forms.ModelForm):
 
     class Meta:
         model = AccountInfo
-        fields = ['company_name', 'company_banner']
+        fields = ['company_name', 'company_banner', 'company_logo_square', 'company_blurb' ]
 

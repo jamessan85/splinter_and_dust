@@ -13,8 +13,8 @@
 {% endblock %}
 
 {% block content %}
-    <p>you are buying {{ product.title }}</p>
-  <form role="form" method="post" id="register-form" action="{% url 'purchase' product.id %}">
+    <p>You are buying {{ product.title }} for £{{ product.price }} please fill in the information required below</p>
+  <form role="form" method="post" id="purchase-form" action="{% url 'purchase' product.id %}">
     <div id="credit-card-errors" style="display:none">
       <div class="alert-message block-message error" id="stripe-error-message"></div>
     </div>

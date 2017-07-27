@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container">
-{% for p in product %}
-    {% if user.id ==  p.userid %}
-        <div class="col-sm-3">
-            <img src="/media/{{ p.image }}" style="height:200px; width:280px" onclick="location.href={{ p.id }}">
-            <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
-               {% if user.id == p.userid %}
-            <a href="{% url 'editproduct' p.id %}"><button type="button" class="btn btn-default">Edit</button></a>
-            {% endif %}
-        </div>
-    {% endif %}
-{% endfor %}
+    <h1>View your products and edit them</h1>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>View product</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in product %}
+                {% if user.id ==  p.userid %}
+                <tr>
+                    <td>{{ p.title }}</td>
+                    <td>{{ p.product_info }}</td>
+                    <td>{{ p.price }}</td>
+                    <td><a href="{% url 'editproduct' p.id %}"><button type="button" class="btn btn-default">Edit</button></a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
     </div>
 {% endblock %}

@@ -18,8 +18,6 @@ from django.contrib import admin
 from products import views as products_views
 from tradelogins import views as tradelogin_views
 from django.views.static import serve
-from paypal.standard.ipn import urls as paypal_urls
-from paypal_store import views as paypal_views
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
@@ -30,18 +28,18 @@ urlpatterns = [
     url(r'^home/company/(?P<company>\d+)/$', products_views.sort_by_company, name='companies'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^media/banners/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+    url(r'^media/logo_square/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^home/products/(?P<id>\d+)/$', products_views.product_detail, name='productbyid'),
     url(r'^home/products/$', products_views.products_by_user, name='productsbyuser'),
     url(r'^home/products/purchase/(?P<purchase>\d+)/$', products_views.purchase, name='purchase'),
     url(r'^home/products/edit/(?P<edit_prod>\d+)/$', products_views.edit_product, name='editproduct'),
     url(r'^register/$', tradelogin_views.register, name='register'),
+    url(r'^register/cust/$', tradelogin_views.registercust, name='custregister'),
     url(r'^profile/$', tradelogin_views.profile, name='profile'),
+    url(r'^profile/productsbought/(?P<userid>\d+)/$', products_views.products_bought, name='prodbought'),
     url(r'^product/new/$', products_views.new_product, name='new_product'),
     url(r'^login/$', tradelogin_views.login, name='login'),
     url(r'^logout/$', tradelogin_views.logout, name='logout'),
     url(r'^profile/accountinfo/$', tradelogin_views.accountinformation, name='accountinformation'),
     url(r'^profile/accountinfo/edit/(?P<account_num>\d+)/$', tradelogin_views.editaccountinfo, name='editaccountinfo'),
-    url(r'^a-very-hard-to-guess-url/', include(paypal_urls)),
-    url(r'^paypal-return', paypal_views.paypal_return),
-    url(r'^paypal-cancel', paypal_views.paypal_cancel),
 ]

@@ -7,6 +7,14 @@
         </div>
         <div class="product-box2">
             <h1>{{ product.title }}</h1>
+              {% for a in accountinfo %}
+                {% if product.userid == a.account_id  %}
+                    <div class="image-logo">
+                <p>Produced by:</p>
+            <img src="/media/{{ a.company_banner }}" style="height:50px; width:200px" >
+                    </div>
+                {% endif %}
+            {% endfor %}
             <p>{{ product.product_info }}</p>
             <h2>£{{ product.price }}</h2>
             <a href="{% url 'purchase' product.id %}"><button type="button" class="btn btn-default">Add to basket</button></a>
