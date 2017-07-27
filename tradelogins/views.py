@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import datetime
 import stripe
+import arrow
 # Create your views here.
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -27,16 +28,21 @@ def register(request):
                     description=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id'],
                 )
+
+                if customer:
+                    user = form.save()
+                    user.stripe_id = customer.id
+                    user.subscription_end = arrow.now().replace(weeks=+4).datetime
+                    user.user_type = 'T'
+                    user.save()
+
                 if customer.paid:
-                    form.save(commit=False)
-                    form.user_type = 'T'
-                    form.save()
+
                     user = auth.authenticate(email=request.POST.get('email'),
                                              password=request.POST.get('password1'))
                     if user:
                         auth.login(request, user)
-                        user.user_type = 'T'
-                        user.save()
+
                         messages.success(request, "You have successfully registered")
                         return redirect(reverse('profile'))
                     else:
@@ -109,7 +115,7 @@ def logout(request):
 def profile(request):
     return render(request, 'profile.html')
 
-
+@login_required(login_url='/login/')
 def accountinformation(request):
         if request.method == "POST":
             form = AccountInformation(request.POST, request.FILES)
@@ -142,6 +148,15 @@ def editaccountinfo(request, account_num):
     args.update(csrf(request))
 
     return render(request, 'userinformation.html', args)
+
+@login_required(login_url='/login/')
+def cancel_subscription(request):
+    try:
+        customer = stripe.Customer.retrieve(request.user.stripe_id)
+        customer.cancel_subscription(at_period_end=True)
+    except Exception, e:
+        messages.error(request, e)
+    return redirect('home')
 
 
 

@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'^logout/$', tradelogin_views.logout, name='logout'),
     url(r'^profile/accountinfo/$', tradelogin_views.accountinformation, name='accountinformation'),
     url(r'^profile/accountinfo/edit/(?P<account_num>\d+)/$', tradelogin_views.editaccountinfo, name='editaccountinfo'),
+    url(r'^cancel_subscription/$', tradelogin_views.cancel_subscription, name='cancel_subscription'),
 ]
