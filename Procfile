@@ -1,1 +1,1 @@
-web: gunicorn splinter_and_dust.wsgi:application
+web: gunicorn splinter_and_dust.wsgi
