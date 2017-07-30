@@ -1,0 +1,14 @@
+arrow
+beautifulsoup4
+django-disqus
+Django
+django-emoticons
+djangorestframework
+django-forms-bootstrap
+django-tinymce
+Pillow
+python-dateutil
+six
+wheel
+stripe
+git+https://github.com/jamessan85/splinter_and_dust.git

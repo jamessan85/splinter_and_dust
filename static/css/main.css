@@ -32,8 +32,9 @@ p {
 }
 
 body {
-    padding: 0px 20px;
+    padding: 0px 0px;
 }
+
 
 .loggedin {
     display: flex;
@@ -107,7 +108,9 @@ body {
     padding: 50px 0px;
 }
 
-
+.btn-default {
+    border-color: darkorange;
+}
 
 .flexbox {
     display: flex;
@@ -175,17 +178,19 @@ body {
         display: block;
     }
 
+.hamburger {
+    display: none;
 
-@media all and (max-width: 500px) {
-    .navibar {
-        /* On small screens, we are no longer using row direction but column */
-        flex-direction: column;
-        padding-left: 0px;
-        align-items: center;
     }
 
+.minititle {
+         display: none;
+     }
+
+@media all and (max-width: 500px) {
+
     .dropbtn {
-        border-bottom: 1px orange solid;
+        border-bottom: 1px red solid;
         width: 100%;
     }
 
@@ -206,6 +211,41 @@ body {
     .containernav {
         width: 100%;
     }
+
+    .imagesort {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+    .flexbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+    .hamburger {
+        display: block;
+        font-size: 50px;
+        color: lightgray;
+    }
+
+        .navibar {
+        /* On small screens, we are no longer using row direction but column */
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .minititle {
+         display: flex;
+        flex-direction: row;
+        flex-flow: nowrap;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-left: 10px;
+     }
+
 
 
 }

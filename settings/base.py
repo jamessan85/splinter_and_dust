@@ -23,13 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ogl5e7ev#ep6a@k@z0i$qr_7i@xb@4f*&40lkoheh$lzb-z1i&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
-
-SITE_URL = 'http://127.0.0.1:8000'
-PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
-PAYPAL_RECEIVER_EMAIL = 'jamessandersoon-facilitator@gmail.com'
 
 # Application definition
 
@@ -43,6 +39,7 @@ INSTALLED_APPS = [
     'products',
     'tradelogins',
     'django_forms_bootstrap',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -143,5 +140,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Stripe environment variables
-STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_3LMtAyn1SOaq9o62EREYrSDe')
-STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_FtpgmAnp9OLHr33GwaGtkgAV')
+
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", 'js', 'tinymce', 'tinymce.min.js')

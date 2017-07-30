@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+   <div class="container">
     {% for a in accountinfo %}
         {% if user.id == a.account_id %}
     <h2>Welcome {{ a.company_name }}</h2>
@@ -41,4 +42,5 @@
             {% endfor %}
     <a href="{% url 'accountinformation' %}"><button type="submit" class="btn btn-info">Add account information</button></a>
     {% endif %}
+   </div>
 {% endblock %}

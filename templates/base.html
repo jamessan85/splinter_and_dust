@@ -4,10 +4,14 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto|Kanit" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {% block head_js %}{% endblock %}
+    <script src="{% static 'css/main.css' %}"></script>
+    {% block head_js %}
+  <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+    {% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Splinter and Dust</title>
@@ -15,6 +19,9 @@
 <body>
 
 <nav class="containernav">
+    <div class="minititle">
+    <h1 class="titlepad">Splinter & Dust</h1><span class="hamburger glyphicon glyphicon-menu-hamburger"></span>
+    </div>
     <ul class="navibar">
       <div class="dropdown">
           <a href="{% url 'home' %}"><button class="dropbtn">Home</button></a>
