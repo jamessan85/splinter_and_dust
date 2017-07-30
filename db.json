@@ -33,10 +33,10 @@
 },
 {
     "model": "sessions.session",
-    "pk": "vz3z7h9f76cglm47pzjao6x7r2j2goex",
+    "pk": "pgs967c1a70kwboebnloe7qel379nrx8",
     "fields": {
-        "session_data": "ZTc4NjBkN2M0ZTNjNWYwMzcyODUxY2E2YjExOTI3OGExZDU5NmZiODp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc3NGQ4YzExZDAzMTIyOWVmMTQwM2RjZGNhZDBkZGIyMGVlZjM4ODEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiMzIifQ==",
-        "expire_date": "2017-08-11T06:41:16.245Z"
+        "session_data": "YmFjOWJkZmE5ZTczNjk5YjJjMjRiMWJjMjdhODFiNWNiNzY0NzcyOTp7Il9hdXRoX3VzZXJfaGFzaCI6IjY5NGMxYzYxNzE1NjcxYWFhZGUxM2U2ZDM5OWVmMWI4OTc4ZmY5NjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiNTIifQ==",
+        "expire_date": "2017-08-13T21:23:27.810Z"
     }
 },
 {
@@ -303,7 +303,7 @@
     "pk": 48,
     "fields": {
         "password": "pbkdf2_sha256$36000$GGYhFJalPacj$rPN74d1juQpx0H/ZMQi9NZyLV3uKDiCOCqU6C5EwiyM=",
-        "last_login": "2017-07-27T21:56:31.403Z",
+        "last_login": "2017-07-30T21:22:01.380Z",
         "is_superuser": false,
         "username": "jamestest10@gmail.com",
         "first_name": "",
@@ -378,6 +378,27 @@
         "stripe_id": "",
         "subscription_end": "2017-07-27T21:00:50.451Z",
         "user_type": " ",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tradelogins.user",
+    "pk": 52,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$0dsY0Qz2FZZR$NoFcqmPHb62ICRtasoFR6j8YPRW5Cw0LLWRxk+iA460=",
+        "last_login": "2017-07-30T21:23:27.779Z",
+        "is_superuser": false,
+        "username": "gumball@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "gumball@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-07-30T21:23:25.239Z",
+        "stripe_id": "ch_1AlOsjIi1kngl4QAkOcx75Pi",
+        "subscription_end": "2017-08-27T21:23:27.587Z",
+        "user_type": "T",
         "groups": [],
         "user_permissions": []
     }
