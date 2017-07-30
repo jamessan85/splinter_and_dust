@@ -1,12 +1,10 @@
 from base import *
+import dj_database_url
 
 DEBUG = False
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config('mysql://b91e600fa9d9e1:b19256f2@eu-cdbr-west-01.cleardb.com/heroku_311bf5ff6bb89d3?')
 }
 
 # Stripe environment variables
