@@ -12,4 +12,3 @@ six
 wheel
 stripe
 gunicorn
-git+https://github.com/jamessan85/splinter_and_dust.git
