@@ -25,7 +25,7 @@ SECRET_KEY = 'ogl5e7ev#ep6a@k@z0i$qr_7i@xb@4f*&40lkoheh$lzb-z1i&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".herokuapp.com", "splinter-and-dust.herokuapp.com", "localhost"]
 
 # Application definition
 
