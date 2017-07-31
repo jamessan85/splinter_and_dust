@@ -25,7 +25,7 @@ SECRET_KEY = 'ogl5e7ev#ep6a@k@z0i$qr_7i@xb@4f*&40lkoheh$lzb-z1i&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com", "splinter-and-dust.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = [".herokuapp.com", "splinter-and-dust.herokuapp.com", "localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -44,16 +44,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+
 ]
 
 ROOT_URLCONF = 'splinter_and_dust.urls'
