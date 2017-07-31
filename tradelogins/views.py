@@ -6,6 +6,7 @@ from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import UpdateView
 from django.template.context_processors import csrf
+from django.template.loader import render_to_string
 from tradelogins.forms import TradeRegistrationForm, UserLoginForm, AccountInformation, CustRegistrationForm
 from .models import User, AccountInfo
 from django.contrib.auth.decorators import login_required
