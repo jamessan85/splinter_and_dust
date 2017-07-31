@@ -1,158 +1,6 @@
 [
 {
     "fields": {
-        "expire_date": "2017-08-04T14:18:26.482Z",
-        "session_data": "YTM3N2IxYWNiMGI2NzEwMDNlYWJjY2MxOGU4ZDI2Y2U0N2ZiZTE3YTp7Il9hdXRoX3VzZXJfaGFzaCI6ImY5ZTIyMTkyYTI0ZjlhNjdmMTczODMzM2E2YmVmZGFjYjI1OGZjMjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxNCJ9"
-    },
-    "model": "sessions.session",
-    "pk": "45tvfmoiuhnmsz2qgeaoxe1m2x9njttz"
-},
-{
-    "fields": {
-        "expire_date": "2017-08-02T16:29:14.543Z",
-        "session_data": "YTI4MGZmMGQ0N2JkNzQwNDhiZTI4YzU2YTBlN2ZhYjVjZjc4ZTA3Mjp7Il9hdXRoX3VzZXJfaGFzaCI6IjM1ZDQ2OGYxMDZmMTk3NGE5NjczODk1MDJkZDUyNDc3YzdkYzBmOTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiOCJ9"
-    },
-    "model": "sessions.session",
-    "pk": "hg2asba7m79qcvppwdzk2r7x4eyqp6fa"
-},
-{
-    "fields": {
-        "expire_date": "2017-08-10T17:23:18.055Z",
-        "session_data": "ZTc4NjBkN2M0ZTNjNWYwMzcyODUxY2E2YjExOTI3OGExZDU5NmZiODp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc3NGQ4YzExZDAzMTIyOWVmMTQwM2RjZGNhZDBkZGIyMGVlZjM4ODEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiMzIifQ=="
-    },
-    "model": "sessions.session",
-    "pk": "lmzbgr85z4g3e0hov5jipezujlkztsho"
-},
-{
-    "fields": {
-        "expire_date": "2017-08-02T16:35:09.327Z",
-        "session_data": "YTI4MGZmMGQ0N2JkNzQwNDhiZTI4YzU2YTBlN2ZhYjVjZjc4ZTA3Mjp7Il9hdXRoX3VzZXJfaGFzaCI6IjM1ZDQ2OGYxMDZmMTk3NGE5NjczODk1MDJkZDUyNDc3YzdkYzBmOTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiOCJ9"
-    },
-    "model": "sessions.session",
-    "pk": "lqsmojtiuea2urpsxk4ky1jn8l1p8kia"
-},
-{
-    "fields": {
-        "expire_date": "2017-08-13T21:23:27.810Z",
-        "session_data": "YmFjOWJkZmE5ZTczNjk5YjJjMjRiMWJjMjdhODFiNWNiNzY0NzcyOTp7Il9hdXRoX3VzZXJfaGFzaCI6IjY5NGMxYzYxNzE1NjcxYWFhZGUxM2U2ZDM5OWVmMWI4OTc4ZmY5NjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiNTIifQ=="
-    },
-    "model": "sessions.session",
-    "pk": "pgs967c1a70kwboebnloe7qel379nrx8"
-},
-{
-    "fields": {
-        "creator": "artyfart@gmail.com",
-        "price": "15.00",
-        "title": "Dino Feet",
-        "userid": 32,
-        "content": null,
-        "range": "frames",
-        "product_info": "Dinosaur feet made from reclaimed wood and hessian sacks. \r\n\r\nDimensions are 30x30",
-        "image": "images/feet_Hsn8e9q.jpg"
-    },
-    "model": "products.product",
-    "pk": 24
-},
-{
-    "fields": {
-        "creator": "hotbox@gmail.com",
-        "price": "20.00",
-        "title": "T-Rex",
-        "userid": 33,
-        "content": null,
-        "range": "artwork",
-        "product_info": "T-Rex printer, freindly enough for Katy Perry, mean enough to make your rooooooooooooar.",
-        "image": "images/bronte_0Q7krdS.jpg"
-    },
-    "model": "products.product",
-    "pk": 25
-},
-{
-    "fields": {
-        "creator": "omg@gmail.com",
-        "price": "15.00",
-        "title": "Bike Print",
-        "userid": 34,
-        "content": null,
-        "range": "furniture",
-        "product_info": "Bike print, perfect for that keen cyclist and the kitchen wall",
-        "image": "images/bike_WS0ceRF.jpg"
-    },
-    "model": "products.product",
-    "pk": 26
-},
-{
-    "fields": {
-        "creator": "pineandoak@gmail.com",
-        "price": "10.00",
-        "title": "Anchor",
-        "userid": 35,
-        "content": null,
-        "range": "upcycled",
-        "product_info": "Anchor print made out of Oak, lavish is one word we like to use. but there are many more were sure you can think og",
-        "image": "images/anchor_VOMckEt.jpg"
-    },
-    "model": "products.product",
-    "pk": 27
-},
-{
-    "fields": {
-        "creator": "wyldwood@gmail.com",
-        "price": "10.00",
-        "title": "Stag Print",
-        "userid": 36,
-        "content": null,
-        "range": "frames",
-        "product_info": "Stag print, made from our special wild wood, found very close to a stag.",
-        "image": "images/stag_BAhLFfA.jpg"
-    },
-    "model": "products.product",
-    "pk": 28
-},
-{
-    "fields": {
-        "creator": "wyldwood@gmail.com",
-        "price": "15.00",
-        "title": "Cat",
-        "userid": 36,
-        "content": null,
-        "range": "frames",
-        "product_info": "Meow goes the cat",
-        "image": "images/bike_PoFGNCQ.jpg"
-    },
-    "model": "products.product",
-    "pk": 29
-},
-{
-    "fields": {
-        "range": "frames"
-    },
-    "model": "products.collection",
-    "pk": 1
-},
-{
-    "fields": {
-        "range": "artwork"
-    },
-    "model": "products.collection",
-    "pk": 2
-},
-{
-    "fields": {
-        "range": "furniture"
-    },
-    "model": "products.collection",
-    "pk": 3
-},
-{
-    "fields": {
-        "range": "upcycled"
-    },
-    "model": "products.collection",
-    "pk": 4
-},
-{
-    "fields": {
         "username": "artyfart@gmail.com",
         "first_name": "",
         "last_name": "",
@@ -528,4 +376,117 @@
     },
     "model": "tradelogins.purchase",
     "pk": 15
+},
+{
+    "fields": {
+        "creator": "artyfart@gmail.com",
+        "price": "15.00",
+        "title": "Dino Feet",
+        "userid": 32,
+        "content": null,
+        "range": "frames",
+        "product_info": "Dinosaur feet made from reclaimed wood and hessian sacks. \r\n\r\nDimensions are 30x30",
+        "image": "images/feet_Hsn8e9q.jpg"
+    },
+    "model": "products.product",
+    "pk": 24
+},
+{
+    "fields": {
+        "creator": "hotbox@gmail.com",
+        "price": "20.00",
+        "title": "T-Rex",
+        "userid": 33,
+        "content": null,
+        "range": "artwork",
+        "product_info": "T-Rex printer, freindly enough for Katy Perry, mean enough to make your rooooooooooooar.",
+        "image": "images/bronte_0Q7krdS.jpg"
+    },
+    "model": "products.product",
+    "pk": 25
+},
+{
+    "fields": {
+        "creator": "omg@gmail.com",
+        "price": "15.00",
+        "title": "Bike Print",
+        "userid": 34,
+        "content": null,
+        "range": "furniture",
+        "product_info": "Bike print, perfect for that keen cyclist and the kitchen wall",
+        "image": "images/bike_WS0ceRF.jpg"
+    },
+    "model": "products.product",
+    "pk": 26
+},
+{
+    "fields": {
+        "creator": "pineandoak@gmail.com",
+        "price": "10.00",
+        "title": "Anchor",
+        "userid": 35,
+        "content": null,
+        "range": "upcycled",
+        "product_info": "Anchor print made out of Oak, lavish is one word we like to use. but there are many more were sure you can think og",
+        "image": "images/anchor_VOMckEt.jpg"
+    },
+    "model": "products.product",
+    "pk": 27
+},
+{
+    "fields": {
+        "creator": "wyldwood@gmail.com",
+        "price": "10.00",
+        "title": "Stag Print",
+        "userid": 36,
+        "content": null,
+        "range": "frames",
+        "product_info": "Stag print, made from our special wild wood, found very close to a stag.",
+        "image": "images/stag_BAhLFfA.jpg"
+    },
+    "model": "products.product",
+    "pk": 28
+},
+{
+    "fields": {
+        "creator": "wyldwood@gmail.com",
+        "price": "15.00",
+        "title": "Cat",
+        "userid": 36,
+        "content": null,
+        "range": "frames",
+        "product_info": "Meow goes the cat",
+        "image": "images/bike_PoFGNCQ.jpg"
+    },
+    "model": "products.product",
+    "pk": 29
+},
+{
+    "fields": {
+        "range": "frames"
+    },
+    "model": "products.collection",
+    "pk": 1
+},
+{
+    "fields": {
+        "range": "artwork"
+    },
+    "model": "products.collection",
+    "pk": 2
+},
+{
+    "fields": {
+        "range": "furniture"
+    },
+    "model": "products.collection",
+    "pk": 3
+},
+{
+    "fields": {
+        "range": "upcycled"
+    },
+    "model": "products.collection",
+    "pk": 4
 }
+]
