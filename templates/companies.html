@@ -10,7 +10,7 @@
      <div class="imagesort">
 {% for p in product %}
         <div class="col-sm-3">
-            <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}" style="height:200px; width:280px"></a>
+            <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}" style="height:200px; width:255px"></a>
             <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
             <a href="{% url 'purchase' p.id %}"><button type="button" class="btn btn-default">Buy now</button></a>
         </div>
