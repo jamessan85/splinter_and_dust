@@ -27,9 +27,6 @@ urlpatterns = [
     url(r'^collection/(?P<collection>\w+)/$', products_views.sort_by_collection, name='collection'),
     url(r'^company/$', products_views.show_companies, name='companiesall'),
     url(r'^company/(?P<company>\d+)/$', products_views.sort_by_company, name='companies'),
-    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
-    url(r'^media/banners/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
-    url(r'^media/logo_square/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^products/(?P<id>\d+)/$', products_views.product_detail, name='productbyid'),
     url(r'^products/$', products_views.products_by_user, name='productsbyuser'),
     url(r'^products/purchase/(?P<purchase>\d+)/$', products_views.purchase, name='purchase'),
@@ -44,4 +41,7 @@ urlpatterns = [
     url(r'^profile/accountinfo/$', tradelogin_views.accountinformation, name='accountinformation'),
     url(r'^profile/accountinfo/edit/(?P<account_num>\d+)/$', tradelogin_views.editaccountinfo, name='editaccountinfo'),
     url(r'^cancel_subscription/$', tradelogin_views.cancel_subscription, name='cancel_subscription'),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+    url(r'^media/banners/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+    url(r'^media/logo_square/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 ]
