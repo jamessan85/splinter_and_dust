@@ -15,8 +15,9 @@
                     </div>
                 {% endif %}
             {% endfor %}
+            <p>Description:</p>
             <p>{{ product.product_info }}</p>
-            <h2>£{{ product.price }}</h2>
+            <h2><b>£{{ product.price }}</b></h2>
             <a href="{% url 'purchase' product.id %}"><button type="button" class="btn btn-default">Add to basket</button></a>
         </div>
     </div>

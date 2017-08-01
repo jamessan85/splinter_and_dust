@@ -39,7 +39,6 @@ body {
     padding: 0px 0px;
 }
 
-
 .loggedin {
     display: flex;
     justify-content: center;
@@ -114,6 +113,12 @@ body {
 
 .btn-default {
     border-color: darkorange;
+    background-color: darkorange;
+}
+
+.btn-default:hover {
+    border-color: #b2d0bc;
+    background-color: #b2d0bc;
 }
 
 .flexbox {

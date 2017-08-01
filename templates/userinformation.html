@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="container">
     {% load bootstrap_tags %}
     <h1>Account Information</h1>
     <form method="POST" enctype="multipart/form-data">
@@ -7,4 +8,5 @@
         {{ form | as_bootstrap }}
         <button type="submit" class="btn btn-info">Save and finish</button>
     </form>
+    </div>
 {% endblock %}
