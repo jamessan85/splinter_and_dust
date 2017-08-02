@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container">
+    <div class="imagesort">
  {% for b in banner %}
 
     <img class="profilelong" src="/media/{{ b.company_banner }}">
      <img class="profilesquare" src="/media/{{ b.company_logo_square }}">
 
  {% endfor %}
-     <div class="imagesort">
+
 {% for p in product %}
         <div class="col-sm-3">
             <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}" style="height:200px; width:255px"></a>

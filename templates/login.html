@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+    <div class="container">
     <form role="form" method="post" action="{% url 'login' %}">
         <legend>Login</legend>
         <p>Don't have a login, you can click <a href="{% url 'custregister' %} ">here</a> to sign up, it's quick and free </p>
@@ -10,4 +11,5 @@
             <button type="submit" class="btn btn-primary">Login</button>
         </div>
     </form>
+    </div>
 {% endblock %}
