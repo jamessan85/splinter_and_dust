@@ -205,13 +205,34 @@ body {
 
 @media all and (max-width: 500px) {
 
-    .dropbtn {
-        border-bottom: 1px darkorange solid;
+    button {
         width: 100%;
+    }
+
+    .dropbtn {
+        border-bottom: 2px darkorange solid;
+    }
+        .dropbtn:hover {
+        border-bottom: 2px #b2d0bc solid;
+    }
+
+        .dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+    .dropdown {
+        width: 100%;
+    }
+
+    h1  {
+        font-family: 'Nothing You Could Do', cursive;
     }
 
     .mainpic {
         display: none;
+    }
+
+    .titlepad {
+        margin-top: 5px;
     }
 
     .profilelong {
@@ -244,6 +265,11 @@ body {
         display: block;
         font-size: 50px;
         color: darkorange;
+        margin-bottom: 20px;
+    }
+
+    .hamburger:hover {
+       color:#b2d0bc;
     }
 
         .navibar {
@@ -251,6 +277,7 @@ body {
         display: none;
         flex-direction: column;
         align-items: center;
+            padding-left: 0px;
     }
 
     .minititle {
