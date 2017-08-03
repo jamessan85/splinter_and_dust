@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container">
     <p>You are buying {{ product.title }} for £{{ product.price }} please fill in the information required below</p>
   <form role="form" method="post" id="purchase-form" action="{% url 'purchase' product.id %}">
     <div id="credit-card-errors" style="display:none">
@@ -26,4 +27,5 @@
       <input class="btn btn-primary" id="validate_card_btn" name="commit" type="submit" value="Purchase Product">
     </div>
   </form>
+    </div>
 {% endblock %}

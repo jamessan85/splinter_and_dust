@@ -24,8 +24,8 @@ def register(request):
         if form.is_valid():
             try:
                 customer = stripe.Charge.create(
-                    amount=499,
-                    currency="USD",
+                    amount=999,
+                    currency="GBP",
                     description=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id'],
                 )
@@ -72,6 +72,7 @@ def registercust(request):
                                      password=request.POST.get('password1'))
 
             if user:
+                auth.login(request, user)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('profile'))
 
