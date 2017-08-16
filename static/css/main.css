@@ -72,7 +72,7 @@ body {
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+#dropdown-content1, #dropdown-content2, #dropdown-content3 {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -82,7 +82,7 @@ body {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+#dropdown-content1 a, #dropdown-content2 a, #dropdown-content3 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -90,10 +90,12 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+#dropdown-content1 a:hover, #dropdown-content2 a:hover, #dropdown-content3 a:hover {
+    background-color: #f1f1f1
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3 {
     display: block;
 }
 
@@ -206,6 +208,10 @@ body {
     flex-direction: row;
 }
 
+ #button1, #button2, #button3 {
+     display: none;
+ }
+
 @media all and (max-width: 500px) {
 
     button {
@@ -215,13 +221,9 @@ body {
     .dropbtn {
         border-bottom: 2px darkorange solid;
     }
-        .dropbtn:hover {
+    .dropbtn:hover {
         border-bottom: 2px #b2d0bc solid;
     }
-
-        .dropdown:hover .dropbtn {
-    background-color: transparent;
-}
     .dropdown {
         width: 100%;
     }
@@ -275,12 +277,12 @@ body {
        color:#b2d0bc
     }
 
-        .navibar {
-        /* On small screens, we are no longer using row direction but column */
-        display: none;
-        flex-direction: column;
-        align-items: center;
-            padding-left: 0px;
+    .navibar {
+    /* On small screens, we are no longer using row direction but column */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
     }
 
     .minititle {
@@ -297,5 +299,24 @@ body {
     flex-direction: column;
     }
 
+    #button1, #button2, #button3 {
+        display: block;
+        position: absolute;
+        right: 10px;
+        bottom: 20px;
+        background-color: #7ACAFF;
+    }
+
+    #dropdown-content1, #dropdown-content2, #dropdown-content3 {
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    text-align: center;
+    }
+
+
+    .dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3 {
+    display: none;
+    }
 
 }

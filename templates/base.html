@@ -26,7 +26,8 @@
       </div>
       <div class="dropdown">
           <a href="{% url 'home' %}"><button class="dropbtn">Products</button></a>
-      <div class="dropdown-content">
+          <div id="button1">More +</div>
+      <div id="dropdown-content1">
         {% for c in collection %}
         <a href="{% url 'collection' c.range %}">{{ c.range }}</a>
         {% endfor %}
@@ -34,17 +35,18 @@
       </div>
       <div class="dropdown">
           <a href="{% url 'companiesall' %}"><button class="dropbtn">Companies</button></a>
-      <div class="dropdown-content">
+        <div id="button2">More +</div>
+      <div id="dropdown-content2">
         {% for a in accountinfo %}
         <a href="{% url 'companies' a.account_id %}">{{ a.company_name }}</a>
         {% endfor %}
       </div>
       </div>
-
       {% if user.is_authenticated %}
       <div class="dropdown">
           <a href="{% url 'profile' %}"><button class="dropbtn">Account</button></a>
-        <div class="dropdown-content">
+       <div id="button3">More +</div>
+        <div id="dropdown-content3">
         {% if user.user_type == 'T' %}
         <a href="{% url 'new_product' %}">Upload new product</a>
         <a href="{% url 'productsbyuser' %}">View/Edit Products</a>
