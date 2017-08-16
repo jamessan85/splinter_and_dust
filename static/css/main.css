@@ -72,7 +72,7 @@ body {
 }
 
 /* Dropdown Content (Hidden by Default) */
-#dropdown-content1, #dropdown-content2, #dropdown-content3 {
+#dropdown-content1, #dropdown-content2, #dropdown-content3, #dropdown-content4 {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -82,7 +82,7 @@ body {
 }
 
 /* Links inside the dropdown */
-#dropdown-content1 a, #dropdown-content2 a, #dropdown-content3 a {
+#dropdown-content1 a, #dropdown-content2 a, #dropdown-content3 a, #dropdown-content4 a  {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -90,12 +90,12 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-#dropdown-content1 a:hover, #dropdown-content2 a:hover, #dropdown-content3 a:hover {
+#dropdown-content1 a:hover, #dropdown-content2 a:hover, #dropdown-content3 a:hover, #dropdown-content4 a:hover {
     background-color: #f1f1f1
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3 {
+.dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3, .dropdown:hover #dropdown-content4 {
     display: block;
 }
 
@@ -208,7 +208,7 @@ body {
     flex-direction: row;
 }
 
- #button1, #button2, #button3 {
+ #button1, #button2, #button3, #button4 {
      display: none;
  }
 
@@ -299,15 +299,15 @@ body {
     flex-direction: column;
     }
 
-    #button1, #button2, #button3 {
+    #button1, #button2, #button3, #button4 {
         display: block;
         position: absolute;
         right: 10px;
         bottom: 20px;
-        background-color: #7ACAFF;
+        background-color: #b2d0bc;
     }
 
-    #dropdown-content1, #dropdown-content2, #dropdown-content3 {
+    #dropdown-content1, #dropdown-content2, #dropdown-content3, #dropdown-content4 {
     position: absolute;
     background-color: #f9f9f9;
     width: 100%;
@@ -315,7 +315,7 @@ body {
     }
 
 
-    .dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3 {
+    .dropdown:hover #dropdown-content1, .dropdown:hover #dropdown-content2, .dropdown:hover #dropdown-content3, .dropdown:hover #dropdown-content4 {
     display: none;
     }
 
