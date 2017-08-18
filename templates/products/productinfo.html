@@ -1,27 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container">
+{% extends 'base.html' %} {% block content %}
+<div class="container">
     <div class="col-md-8 col-md-offset-2">
-    <div class="sort-to-column">
-        <div class="product-box">
-            <img src="/media/{{ product.image }}" style="height:300px; width:350px">
+        <div class="sort-to-column">
+            <div class="product-box">
+                <img src="/media/{{ product.image }}" style="height:300px; width:350px">
+            </div>
+            <div class="product-box2">
+                <h1>{{ product.title }}</h1> {% for a in accountinfo %} {% if product.userid == a.account_id %}
+                <div class="image-logo">
+                    <p>Produced by:</p>
+                    <img src="/media/{{ a.company_banner }}" style="height:50px; width:200px">
+                </div>
+                {% endif %} {% endfor %}
+                <p>Description:</p>
+                <p>{{ product.product_info }}</p>
+                <h2><b>£{{ product.price }}</b></h2>
+                <a href="{% url 'purchase' product.id %}">
+                    <button type="button" class="btn btn-default">Add to basket</button>
+                </a>
+            </div>
         </div>
-        <div class="product-box2">
-            <h1>{{ product.title }}</h1>
-              {% for a in accountinfo %}
-                {% if product.userid == a.account_id  %}
-                    <div class="image-logo">
-                <p>Produced by:</p>
-            <img src="/media/{{ a.company_banner }}" style="height:50px; width:200px" >
-                    </div>
-                {% endif %}
-            {% endfor %}
-            <p>Description:</p>
-            <p>{{ product.product_info }}</p>
-            <h2><b>£{{ product.price }}</b></h2>
-            <a href="{% url 'purchase' product.id %}"><button type="button" class="btn btn-default">Add to basket</button></a>
-        </div>
     </div>
-    </div>
-    </div>
+</div>
 {% endblock %}

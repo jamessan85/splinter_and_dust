@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container">
-        <div class="imagesort">
-            <div class="flexbox">
-             {% for a in accountinfo %}
-                 <div class="image">
-                 <img src="/media/{{ a.company_logo_square }}">
-                 <p class="companyblurb">{{ a.company_blurb }}</p>
-                 </div>
-             {% endfor %}
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <div class="imagesort">
+        <div class="flexbox">
+            {% for a in accountinfo %}
+            <div class="image">
+                <a href="{% url 'companies' a.account_id %}">
+                <img src="/media/{{ a.company_logo_square }}">
+                <p class="companyblurb">{{ a.company_blurb }}</p>
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
+</div>
 {% endblock %}

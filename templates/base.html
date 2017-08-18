@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto|Kanit|Nothing+You+Could+Do" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {% block head_js %}
-  <script type="text/javascript" src="{% static "js/main.js" %}"></script>
-    {% endblock %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splinter and Dust</title>
-</head>
-<body>
-
-<nav class="containernav">
-    <div class="minititle">
-    <h1 class="titlepad">Splinter & Dust</h1><span class="hamburger glyphicon glyphicon-menu-hamburger"></span>
-    </div>
-    <ul class="navibar">
-      <div class="dropdown">
-          <a href="{% url 'home' %}"><button class="dropbtn">Home</button></a>
-      </div>
-      <div class="dropdown">
-          <a href="{% url 'home' %}"><button class="dropbtn">Products</button></a>
-          <div id="button1">More +</div>
-      <div id="dropdown-content1">
-        {% for c in collection %}
-        <a href="{% url 'collection' c.range %}">{{ c.range }}</a>
-        {% endfor %}
-      </div>
-      </div>
-      <div class="dropdown">
-          <a href="{% url 'companiesall' %}"><button class="dropbtn">Companies</button></a>
-        <div id="button2">More +</div>
-      <div id="dropdown-content2">
-        {% for a in accountinfo %}
-        <a href="{% url 'companies' a.account_id %}">{{ a.company_name }}</a>
-        {% endfor %}
-      </div>
-      </div>
-      {% if user.is_authenticated %}
-      <div class="dropdown">
-          <a href="{% url 'profile' %}"><button class="dropbtn">Account</button></a>
-       <div id="button3">More +</div>
-        <div id="dropdown-content3">
-        {% if user.user_type == 'T' %}
-        <a href="{% url 'new_product' %}">Upload new product</a>
-        <a href="{% url 'productsbyuser' %}">View/Edit Products</a>
-            {% for a in accountinfo %}
-                {% if user.id == a.account_id %}
-        <a href="{% url 'editaccountinfo' a.id %}">Edit Account Info</a>
-                {% endif %}
-            {% endfor %}
-         {% endif %}
-      </div>
-      </div>
-      <div class="dropdown">
-          <a href="{% url 'logout' %}"><button class="dropbtn">Logout</button></a>
-      </div>
-      {% else %}
-      <div class="dropdown">
-          <button class="dropbtn">Register</button>
-          <div id="button4">More +</div>
-        <div id="dropdown-content4">
-               <a href="{% url 'register' %}">Trade Register</a>
-               <a href="{% url 'custregister' %}">Customer Register</a>
-          </div>
-      </div>
-      <div class="dropdown">
-          <a href="{% url 'login' %}"><button class="dropbtn">Login</button></a>
-      </div>
-      {% endif %}
-       <div>
-              {% if user.is_authenticated %}
-        <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
-       {% endif %}
-    </div>
-    </ul>
-</nav>
-
-{% block content %}
-{% endblock %}
-</body>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+      <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto|Kanit|Nothing+You+Could+Do" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      {% block head_js %}
+      <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+      {% endblock %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Splinter and Dust</title>
+   </head>
+   <body>
+      <nav class="containernav">
+         <div class="mainpic-flex">
+            <div class="mainpic">
+               <img src="{% static "/images/splinteranddust.png" %}">
+            </div>
+         </div>
+         <div class="minititle">
+            <h1 class="titlepad">Splinter & Dust</h1>
+            <span class="hamburger glyphicon glyphicon-menu-hamburger"></span>
+         </div>
+         <ul class="navibar">
+            <div class="dropdown">
+               <a href="{% url 'home' %}"><button class="dropbtn">Home</button></a>
+            </div>
+            <div class="dropdown">
+               <a href="{% url 'home' %}"><button class="dropbtn">Products</button></a>
+               <div id="button1">More +</div>
+               <div id="dropdown-content1">
+                  {% for c in collection %}
+                  <a href="{% url 'collection' c.range %}">{{ c.range }}</a>
+                  {% endfor %}
+               </div>
+            </div>
+            <div class="dropdown">
+               <a href="{% url 'companiesall' %}"><button class="dropbtn">Companies</button></a>
+               <div id="button2">More +</div>
+               <div id="dropdown-content2">
+                  {% for a in accountinfo %}
+                  <a href="{% url 'companies' a.account_id %}">{{ a.company_name }}</a>
+                  {% endfor %}
+               </div>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+               <a href="{% url 'profile' %}"><button class="dropbtn">Account</button></a>
+               <div id="button3">More +</div>
+               <div id="dropdown-content3">
+                  {% if user.user_type == 'T' %}
+                  <a href="{% url 'new_product' %}">Upload new product</a>
+                  <a href="{% url 'productsbyuser' %}">View/Edit Products</a>
+                  {% for a in accountinfo %}
+                  {% if user.id == a.account_id %}
+                  <a href="{% url 'editaccountinfo' a.id %}">Edit Account Info</a>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+               </div>
+            </div>
+            <div class="dropdown">
+               <a href="{% url 'logout' %}"><button class="dropbtn">Logout</button></a>
+            </div>
+            {% else %}
+            <div class="dropdown">
+               <button class="dropbtn">Register</button>
+               <div id="button4">More +</div>
+               <div id="dropdown-content4">
+                  <a href="{% url 'register' %}">Trade Register</a>
+                  <a href="{% url 'custregister' %}">Customer Register</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <a href="{% url 'login' %}"><button class="dropbtn">Login</button></a>
+            </div>
+            {% endif %}
+            <div>
+               {% if user.is_authenticated %}
+               <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
+               {% endif %}
+            </div>
+         </ul>
+      </nav>
+      {% block content %}
+      {% endblock %}
+   </body>
 </html>

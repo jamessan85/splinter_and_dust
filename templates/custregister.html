@@ -1,21 +1,13 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% load staticfiles %}
-
-{% block head_js %}
-<script type="text/javascript" src="{% static "js/main.js" %}"></script>
-{% endblock %}
-
-
-{% block content %}
-    <div class="container">
-            <form role="form" method="post" action="{% url 'custregister' %}">
-            <legend>Create a new customer account</legend>
-            {% csrf_token %}
-            {{ form | as_bootstrap }}
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create account</button>
-            </div>
-            </form>
-    </div>
+{% extends "base.html" %} {% load bootstrap_tags %} {% load staticfiles %} {% block head_js %}
+<script type="text/javascript" src="{% static " js/main.js " %}"></script>
+{% endblock %} {% block content %}
+<div class="container">
+    <form role="form" method="post" action="{% url 'custregister' %}">
+        <legend>Create a new customer account</legend>
+        {% csrf_token %} {{ form | as_bootstrap }}
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create account</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

@@ -1,14 +1,14 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container">
     {% load bootstrap_tags %}
-    <h1>Product Upload</h1>
+    <h2>Product Upload</h2>
     <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form | as_bootstrap }}
+        {% csrf_token %} {{ form | as_bootstrap }}
         <button type="submit" class="btn btn-info">Save and finish</button>
     </form>
     <br>
-    <a href="{% url 'productsbyuser' %}"><button type="submit" class="btn btn-info">View your products</button></a>
+    <a href="{% url 'productsbyuser' %}">
+        <button type="submit" class="btn btn-info">View your products</button>
+    </a>
 </div>
 {% endblock %}

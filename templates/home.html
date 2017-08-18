@@ -1,20 +1,19 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container">
-        {% load static %}
-    <div class="mainpic">
-        <img src="{% static "/images/splinteranddust.png" %}">
-    </div>
- <div class="imagesort">
- <div class="row">
-{% for p in product %}
-        <div class="col-sm-3">
-           <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}"></a>
-            <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
-            <a href="{% url 'purchase' p.id %}"><button type="button" class="btn btn-default">Buy now</button></a>
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    {% load static %}
+
+    <div class="imagesort">
+        <div class="row">
+            {% for p in product %}
+            <div class="col-sm-3">
+                <a href={% url 'productbyid' p.id %}><img src="/media/{{ p.image }}"></a>
+                <p>{{ p.title }} | <b>£{{ p.price }}</b></p>
+                <a href="{% url 'purchase' p.id %}">
+                    <button type="button" class="btn btn-default">Buy now</button>
+                </a>
+            </div>
+            {% endfor %}
         </div>
-{% endfor %}
- </div>
- </div>
- </div>
+    </div>
+</div>
 {% endblock %}

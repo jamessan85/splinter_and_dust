@@ -1,70 +1,70 @@
-{% extends "base.html" %}
-{% block content %}
-   <div class="container">
-    {% for a in accountinfo %}
-        {% if user.id == a.account_id %}
+{% extends "base.html" %} {% block content %}
+<div class="container">
+    {% for a in accountinfo %} {% if user.id == a.account_id %}
     <h2>Welcome {{ a.company_name }}</h2>
     <img class="profilelong" src="/media/{{ a.company_banner }}">
-    <img class="profilesquare" src="/media/{{ a.company_logo_square }}">
-        {% endif %}
-    {% endfor %}
+    <img class="profilesquare" src="/media/{{ a.company_logo_square }}"> {% endif %} {% endfor %}
     <p>You are logged in as {{ user.email }} </p>
     <p>Your last log in was: {{ user.last_login }}</p>
     {% if user.user_type == 'T' %}
-        <h2>Subscription Details</h2>
-        <p>You have {{ user.subscription_end|timeuntil}} left on your subscription</p>
+    <h2>Subscription Details</h2>
+    <p>You have {{ user.subscription_end|timeuntil}} left on your subscription</p>
     <p>To cancel your subscription click 'Cancel Subscription' below</p>
     <p>
-        <a href="{% url "cancel_subscription" %}"
-           onclick="return cancelSubscriptionCheck();"
-           class="btn btn-danger">Cancel Subscription</a>
+        <a href="{% url "cancel_subscription" %}" onclick="return cancelSubscriptionCheck();" class="btn btn-danger">Cancel Subscription</a>
     </p>
-        <script type="text/javascript">
+    <script type="text/javascript">
         function cancelSubscriptionCheck() {
             if (confirm('Are you sure you want to cancel?')) {
                 return true;
             }
             return false;
         }
-        </script>
+    </script>
     {% endif %}
-    <h2>Account Info</h2>
-    {% if user.is_authenticated %}
-        <div class="row">
-     <div class="col-sm-3">
-     <h3>Purchases</h3>
-         <p>View you purchases</p>
-    <a href="{% url 'prodbought' user.id %}"><button type="submit" class="btn btn-info">View purchases</button></a>
-     </div>
-    {% endif %}
-    {% if user.user_type == 'T' %}
+    <h2>Account Info</h2> {% if user.is_authenticated %}
+    <div class="row">
         <div class="col-sm-3">
-        <h3>Upload Products</h3>
-         <p>If you have new products you'd like to upload, you can do that here</p>
-    <a href="{% url 'new_product' %}"><button type="submit" class="btn btn-info">Upload new products</button></a>
+            <h3>Purchases</h3>
+            <p>View you purchases</p>
+            <a href="{% url 'prodbought' user.id %}">
+                <button type="submit" class="btn btn-info">View purchases</button>
+            </a>
+        </div>
+        {% endif %} {% if user.user_type == 'T' %}
+        <div class="col-sm-3">
+            <h3>Upload Products</h3>
+            <p>If you have new products you'd like to upload, you can do that here</p>
+            <a href="{% url 'new_product' %}">
+                <button type="submit" class="btn btn-info">Upload new products</button>
+            </a>
         </div>
         <div class="col-sm-3">
-        <h3>View uploaded products</h3>
-        <p>View all your uploaded prdocuts, this allows you to view and then edit them if you wish</p>
-    <a href="{% url 'productsbyuser' %}"><button type="submit" class="btn btn-info">View your products</button></a>
+            <h3>View uploaded products</h3>
+            <p>View all your uploaded prdocuts, this allows you to view and then edit them if you wish</p>
+            <a href="{% url 'productsbyuser' %}">
+                <button type="submit" class="btn btn-info">View your products</button>
+            </a>
         </div>
-            {% for a in accountinfo %}
-                {% if user.id == a.account_id %}
-         <div class="col-sm-3">
-         <h3>Append account info</h3>
-         <p>Want to change you company logos or accuont information, you can do it all here, changes will be made immediately</p>
-    <a href="{% url 'editaccountinfo' a.id %}"><button type="submit" class="btn btn-info">Append account information</button></a>
-         </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        <div class="row">
-         <div class="col-sm-3">
-         <h3>Add account info</h3>
-         <p>Want to add account information, upload banners so people can see the products are created by you! Do it here</p>
-    <a href="{% url 'accountinformation' %}"><button type="submit" class="btn btn-info">Add account information</button></a>
+        {% for a in accountinfo %} {% if user.id == a.account_id %}
+        <div class="col-sm-3">
+            <h3>Append account info</h3>
+            <p>Want to change you company logos or accuont information, you can do it all here, changes will be made immediately</p>
+            <a href="{% url 'editaccountinfo' a.id %}">
+                <button type="submit" class="btn btn-info">Append account information</button>
+            </a>
         </div>
+    </div>
+    {% endif %} {% endfor %}
+    <div class="row">
+        <div class="col-sm-3">
+            <h3>Add account info</h3>
+            <p>Want to add account information, upload banners so people can see the products are created by you! Do it here</p>
+            <a href="{% url 'accountinformation' %}">
+                <button type="submit" class="btn btn-info">Add account information</button>
+            </a>
         </div>
+    </div>
     {% endif %}
-   </div>
+</div>
 {% endblock %}

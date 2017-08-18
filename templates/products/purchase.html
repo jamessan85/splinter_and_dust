@@ -1,31 +1,24 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% load staticfiles %}
-
-{% block head_js %}
-  <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
-  <script type="text/javascript">
-      //<![CDATA[
-      Stripe.publishableKey = '{{ publishable }}';
-      //]]>
-  </script>
-  <script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
-{% endblock %}
-
-{% block content %}
-    <div class="container">
+{% extends "base.html" %} {% load bootstrap_tags %} {% load staticfiles %} {% block head_js %}
+<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static " js/stripe.js " %}"></script>
+{% endblock %} {% block content %}
+<div class="container">
     <p>You are buying {{ product.title }} for £{{ product.price }} please fill in the information required below</p>
-  <form role="form" method="post" id="purchase-form" action="{% url 'purchase' product.id %}">
-    <div id="credit-card-errors" style="display:none">
-      <div class="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
-    <legend>Purchase Product</legend>
+    <form role="form" method="post" id="purchase-form" action="{% url 'purchase' product.id %}">
+        <div id="credit-card-errors" style="display:none">
+            <div class="alert-message block-message error" id="stripe-error-message"></div>
+        </div>
+        <legend>Purchase Product</legend>
 
-    {% csrf_token %}
-    {{ form|as_bootstrap }}
-    <div class="form-group">
-      <input class="btn btn-primary" id="validate_card_btn" name="commit" type="submit" value="Purchase Product">
-    </div>
-  </form>
-    </div>
+        {% csrf_token %} {{ form|as_bootstrap }}
+        <div class="form-group">
+            <input class="btn btn-primary" id="validate_card_btn" name="commit" type="submit" value="Purchase Product">
+        </div>
+    </form>
+</div>
 {% endblock %}

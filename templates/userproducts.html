@@ -1,8 +1,7 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container">
-    <h1>View your products and edit them</h1>
-        <table class="table table-striped">
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <h2>View your products and edit them</h2>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
@@ -12,17 +11,19 @@
             </tr>
         </thead>
         <tbody>
-            {% for p in product %}
-                {% if user.id ==  p.userid %}
-                <tr>
-                    <td><a href="{% url 'productbyid' p.id %}"> {{ p.title }}</a></td>
-                    <td>{{ p.product_info }}</td>
-                    <td>{{ p.price }}</td>
-                    <td><a href="{% url 'editproduct' p.id %}"><button type="button" class="btn btn-default">Edit</button></a></td>
-                </tr>
-                {% endif %}
-            {% endfor %}
+            {% for p in product %} {% if user.id == p.userid %}
+            <tr>
+                <td><a href="{% url 'productbyid' p.id %}"> {{ p.title }}</a></td>
+                <td>{{ p.product_info }}</td>
+                <td>{{ p.price }}</td>
+                <td>
+                    <a href="{% url 'editproduct' p.id %}">
+                        <button type="button" class="btn btn-default">Edit</button>
+                    </a>
+                </td>
+            </tr>
+            {% endif %} {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 {% endblock %}
