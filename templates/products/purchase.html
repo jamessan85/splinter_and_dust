@@ -5,7 +5,7 @@
     Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
-<script type="text/javascript" src="{% static " js/stripe.js " %}"></script>
+<script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
 {% endblock %} {% block content %}
 <div class="container">
     <p>You are buying {{ product.title }} for £{{ product.price }} please fill in the information required below</p>

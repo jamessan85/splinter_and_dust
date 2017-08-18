@@ -2,7 +2,7 @@
 <div class="container">
     <form role="form" method="post" action="{% url 'login' %}">
         <legend>Login</legend>
-        <p>Don't have a login, you can click <a href="{% url 'custregister' %} ">here</a> to sign up, it's quick and free </p>
+        <p>Don't have a login, you can click <a href="{% url 'custregister' %} ">here</a> to sign up, it's quick and free. If you want to have a trade account with us so you can upload products click <a href="{% url 'register' %} ">here</a></p>
         {% csrf_token %} {{ form| as_bootstrap }}
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Login</button>

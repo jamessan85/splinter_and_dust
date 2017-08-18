@@ -5,7 +5,7 @@
     Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
-<script type="text/javascript" src="{% static " js/stripe.js " %}"></script>
+<script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
 {% endblock %} {% block content %}
 <div class="container">
     <form role="form" method="post" id="register-form" action="{% url 'register' %}">
