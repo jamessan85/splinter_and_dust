@@ -19,6 +19,7 @@ from django.contrib import admin
 from products import views as products_views
 from tradelogins import views as tradelogin_views
 from django.views.static import serve
+from django.views.generic import TemplateView
 from settings.base import MEDIA_ROOT
 
 urlpatterns = [
@@ -41,6 +42,7 @@ urlpatterns = [
     url(r'^profile/accountinfo/$', tradelogin_views.accountinformation, name='accountinformation'),
     url(r'^profile/accountinfo/edit/(?P<account_num>\d+)/$', tradelogin_views.editaccountinfo, name='editaccountinfo'),
     url(r'^cancel_subscription/$', tradelogin_views.cancel_subscription, name='cancel_subscription'),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^media/banners/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^media/logo_square/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),

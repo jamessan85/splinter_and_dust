@@ -18,6 +18,7 @@ import arrow
 
 stripe.api_key = settings.STRIPE_SECRET
 
+# trade registration form
 def register(request):
     if request.method == 'POST':
         form = TradeRegistrationForm(request.POST)
@@ -32,8 +33,11 @@ def register(request):
 
                 if customer:
                     user = form.save()
+                    #saves stripe id after submission to link the payment to customer id
                     user.stripe_id = customer.id
                     user.subscription_end = arrow.now().replace(weeks=+4).datetime
+                    # when signing up as trade account saves a T(for trade) to user_type
+                    # this allows only users with the T to upload products and change account information
                     user.user_type = 'T'
                     user.save()
 
@@ -61,7 +65,7 @@ def register(request):
 
     return render(request, 'traderegister.html', args)
 
-
+# customer registration form
 def registercust(request):
     if request.method == 'POST':
         form = CustRegistrationForm(request.POST)
@@ -87,6 +91,7 @@ def registercust(request):
 
     return render(request, 'custregister.html', args)
 
+#login form
 def login(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
@@ -108,21 +113,25 @@ def login(request):
     args.update(csrf(request))
     return render(request, 'login.html', args)
 
+# logout
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
     return redirect(reverse('home'))
 
+# profile view - login required
 @login_required(login_url='/login/')
 def profile(request):
     return render(request, 'profile.html')
 
+# upload account information
 @login_required(login_url='/login/')
 def accountinformation(request):
         if request.method == "POST":
             form = AccountInformation(request.POST, request.FILES)
             if form.is_valid():
                 accountinfo = form.save(commit=False)
+                # saves user id so they can be linked later on.
                 accountinfo.account_id = request.user.id
                 accountinfo.save()
                 return redirect(profile)
@@ -130,6 +139,7 @@ def accountinformation(request):
             form = AccountInformation()
         return render(request, 'userinformation.html', {'form': form})
 
+# edit account information
 @login_required
 def editaccountinfo(request, account_num):
 
@@ -151,6 +161,7 @@ def editaccountinfo(request, account_num):
 
     return render(request, 'userinformation.html', args)
 
+# cancel subscription
 @login_required(login_url='/login/')
 def cancel_subscription(request):
     try:
