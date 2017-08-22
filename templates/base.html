@@ -79,22 +79,14 @@
                <a href="{% url 'login' %}"><button class="dropbtn">Login</button></a>
             </div>
             {% endif %}
+           <div class="dropdown">
+                <a href="{% url 'about' %}"><button class="dropbtn">About</button></a>
+           </div>
             <div>
                {% if user.is_authenticated %}
                <p class="loggedinheight">Logged in as {{ request.user.email }}</p>
                {% endif %}
             </div>
-         <div class="dropdown">
-               <button class="dropbtn">Register</button>
-               <div id="button4">More +</div>
-               <div id="dropdown-content4">
-                  <a href="{% url 'register' %}">Trade Register</a>
-                  <a href="{% url 'custregister' %}">Customer Register</a>
-               </div>
-            </div>
-        <div class="dropdown">
-           <a href="{% url 'about' %}"><button class="dropbtn">About</button></a>
-        </div>
          </ul>
       </nav>
       {% block content %}

@@ -42,3 +42,5 @@ There are two parts to the site. A trade part and a customer part. Trade users p
 4. Create test logins for both trade and customer to see the differences and upload products on the trade logins to see how the accounts work.
 
 ## Testing
+Testing was done when required, using trial and error as can been seen by the github uploads. Once the site was live on heroku it was tested using many different devices to test the responsive design, it was then passed onto colleagues to carry out further testing to see if they could find any faults. Feedback was recieved and changes were made. 
+
