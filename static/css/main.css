@@ -75,7 +75,6 @@ body {
     z-index: 1;
 }
 /* Links inside the dropdown */
-
 #dropdown-content1 a,
 #dropdown-content2 a,
 #dropdown-content3 a,
@@ -86,7 +85,6 @@ body {
     display: block;
 }
 /* Change color of dropdown links on hover */
-
 #dropdown-content1 a:hover,
 #dropdown-content2 a:hover,
 #dropdown-content3 a:hover,
@@ -94,7 +92,6 @@ body {
     background-color: #f1f1f1
 }
 /* Show the dropdown menu on hover */
-
 .dropdown:hover #dropdown-content1,
 .dropdown:hover #dropdown-content2,
 .dropdown:hover #dropdown-content3,
@@ -194,6 +191,8 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+/* hide navbuttns when in mobile view */
 #button1,
 #button2,
 #button3,
