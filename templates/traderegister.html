@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load bootstrap_tags %} {% load staticfiles %} {% block head_js %}
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block head_js %}
 <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
 <script type="text/javascript">
     //<![CDATA[
@@ -6,7 +9,9 @@
     //]]>
 </script>
 <script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
-{% endblock %} {% block content %}
+<script type="text/javascript" src="{% static "js/main.js" %}"></script>
+{% endblock %}
+{% block content %}
 <div class="container">
     <form role="form" method="post" id="register-form" action="{% url 'register' %}">
         <div id="credit-card-errors" style="display:none">

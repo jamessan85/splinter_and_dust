@@ -4,7 +4,7 @@
 
 ### What is the site for?
 
-This site allows both users wishing to purchase products and also trade users who wish to upload there own products to the site, trade users sign up and pay a subscription fee using [Stripe](https://stripe.com/gb). This allows them to upload products, images, prices, company information, banners and logos.
+This site allows both users wishing to purchase products and also trade users who wish to upload their own products to the site, trade users sign up and pay a subscription fee using [Stripe](https://stripe.com/gb). This allows them to upload products, images, prices, company information, banners and logos.
 
 ### How does it work?
 
@@ -13,7 +13,7 @@ There are two parts to the site. A trade part and a customer part. Trade users p
 
 ## Features
 
-### Exisisting Features
+### Existing Features
 - Stripe subscriptions
 - Stripe payments for individual products
 - Upload/Edit products
@@ -36,11 +36,26 @@ There are two parts to the site. A trade part and a customer part. Trade users p
 
 
 ### Getting it all up and running
-1. Clone this repositry using ```git clone https://github.com/jamessan85/splinter_and_dust```
-2. Create a virtual enviroment and use the requirements.txt file to install ```pip install -r requirements.txt```
+1. Clone this repository using ```git clone https://github.com/jamessan85/splinter_and_dust```
+2. Create a virtual environment and use the requirements.txt file to install ```pip install -r requirements.txt```
 3. Run the program and connect to localhost:8000 to view the site
 4. Create test logins for both trade and customer to see the differences and upload products on the trade logins to see how the accounts work.
 
 ## Testing
-Testing was done when required, using trial and error as can been seen by the github uploads. Once the site was live on heroku it was tested using many different devices to test the responsive design, it was then passed onto colleagues to carry out further testing to see if they could find any faults. Feedback was recieved and changes were made. 
+Testing was done was with the help of friends and colleagues using multiple devices. 
+ 
+### Issues found
 
+- Issue with hamburger icon in the mobile view not dropping down the navbar when the page was loading stripe.js, in pages Trade Register and Purchasing. 
+- This was resolved with adding ```<script type="text/javascript" src="{% static "js/main.js" %}"></script>``` to `{block head_js}` on the traderegister and purchasing pages. 
+<br><br>
+- Issue was found with stripe payments not like the decimal place in the price, so a price of £8008 would become £80.08 on stripe.
+- To resolve this issue a small calculation was added to the amount when the form was submitted so stripe would process the correct amount. 
+```
+customer = stripe.Charge.create(
+    amount=int(product.price * 100),
+    currency="GBP",
+    description=product.title,
+    card=form.cleaned_data['stripe_id'],
+ )
+ ```

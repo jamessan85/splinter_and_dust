@@ -27,7 +27,7 @@ def show_companies(request):
     accountinfo = AccountInfo.objects.all()
     return render(request, 'companyhome.html', {'accountinfo': accountinfo})
 
-#### pass two models into one view to filter
+# pass two models into one view to filter on both views
 def sort_by_company(request, company):
     product = Product.objects.filter(userid=company)
     banner = AccountInfo.objects.filter(account_id=company)
@@ -54,8 +54,8 @@ def new_product(request):
         form = EnterProductsForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save(commit=False)
-            product.creator = request.user
-            product.userid = request.user.id
+            product.creator = request.user #saves user to product.creator model
+            product.userid = request.user.id #saves user.id to product.userid model
             product.save()
             return redirect(new_product)
     else:
