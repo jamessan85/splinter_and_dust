@@ -19,10 +19,12 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
 
+#show product by collection
 def sort_by_collection(request, collection):
     product = Product.objects.filter(range=collection)
     return render(request, 'collections.html', {'product':product})
 
+#show page for all company names
 def show_companies(request):
     accountinfo = AccountInfo.objects.all()
     return render(request, 'companyhome.html', {'accountinfo': accountinfo})
@@ -34,10 +36,12 @@ def sort_by_company(request, company):
     ctx = {'banner':banner, 'product':product}
     return render(request, 'companies.html', ctx)
 
+#displays all products
 def product_display(request):
     product = Product.objects.all()
     return render(request, 'home.html', {'product': product})
 
+#display information regarding each product when selected.
 def product_detail(request, id):
     """
     Create a view that return a single
@@ -49,6 +53,7 @@ def product_detail(request, id):
     product = get_object_or_404(Product, pk=id)
     return render(request, "products/productinfo.html", {'product': product})
 
+#generates view for entering a new product form
 def new_product(request):
     if request.method == "POST":
         form = EnterProductsForm(request.POST, request.FILES)
@@ -62,10 +67,12 @@ def new_product(request):
         form = EnterProductsForm()
     return render(request, 'enternewproduct.html', {'form': form})
 
+#view all products created by that account
 def products_by_user(request):
     product = Product.objects.all
     return render(request, 'userproducts.html', {'product': product})
 
+#edit a product
 @login_required
 def edit_product(request, edit_prod):
 
@@ -87,6 +94,7 @@ def edit_product(request, edit_prod):
 
     return render(request, 'enternewproduct.html', args)
 
+#purchase a product, generates form
 @login_required(login_url='/login/')
 def purchase(request, purchase):
 
@@ -128,11 +136,7 @@ def purchase(request, purchase):
 
     return render(request, 'products/purchase.html', args)
 
-# class UserProducts(ListView):
-#         userid = 7
-#         queryset = Product.objects.filter(userid__exact=userid)
-#         template_name = 'products/product_list.html'
-
+#view to see the products the user has bought
 def products_bought(request, userid):
     product = Product.objects.filter(userid=userid)
     purchase = Purchase.objects.filter(user_id=userid)

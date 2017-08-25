@@ -2,12 +2,14 @@ from django import forms
 from .models import Product, Collection
 from tradelogins.models import *
 
+#create new products form
 class EnterProductsForm(forms.ModelForm):
 
     class Meta:
         model = Product
         fields = ('title', 'price', 'product_info', 'image', 'range')
 
+#product purchase form
 class ProductPurchaseForm(forms.ModelForm):
     MONTH_ABBREVIATIONS = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June',

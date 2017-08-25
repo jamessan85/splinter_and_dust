@@ -25,6 +25,7 @@ class AccountUserManager(UserManager):
 
         return user
 
+#customer user model
 class User(AbstractUser):
 
     type_choices = (
@@ -36,6 +37,7 @@ class User(AbstractUser):
     user_type = models.CharField(max_length=2, choices=type_choices, default=' ')
     objects = AccountUserManager()
 
+#account info model
 class AccountInfo(models.Model):
 
     company_name = models.CharField (max_length=25, null=True)
@@ -48,6 +50,7 @@ class AccountInfo(models.Model):
     def __unicode__(self):
         return self.company_name
 
+#product purchase model
 class Purchase(models.Model):
     stripe_id = models.CharField(max_length=40, default='')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='product', null=True)

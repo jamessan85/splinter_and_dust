@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from tradelogins.models import User, AccountInfo
 from django.core.exceptions import ValidationError
 
+#trade registration form
 class TradeRegistrationForm(UserCreationForm):
     MONTH_ABBREVIATIONS = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June',
@@ -53,6 +54,7 @@ class TradeRegistrationForm(UserCreationForm):
 
         return instance
 
+#customer registration form - doesn't require credit card details
 class CustRegistrationForm(UserCreationForm):
 
     password1 = forms.CharField(
@@ -91,10 +93,12 @@ class CustRegistrationForm(UserCreationForm):
 
         return instance
 
+#Login form for both trade and customer
 class UserLoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
 
+#for trade accounts update/create account information
 class AccountInformation(forms.ModelForm):
 
     class Meta:

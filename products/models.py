@@ -6,6 +6,7 @@ from django.conf import settings
 
 # Create your models here.
 
+#for drop down menu in range
 RANGE_CHOICES = [
     ('frames', 'Frames'),
     ('artwork', 'Artwork'),
@@ -13,6 +14,7 @@ RANGE_CHOICES = [
     ('upcycled', 'Upcycled'),
 ]
 
+#model for product info
 class Product(models.Model):
     title = models.CharField(max_length=50, null=True)
     content = models.TextField(max_length=200, null=True)
@@ -26,6 +28,7 @@ class Product(models.Model):
     def __unicode__(self):
         return self.title
 
+#collection model for the navbar
 class Collection(models.Model):
     range = models.CharField(max_length=15, choices=RANGE_CHOICES, null=True)
 

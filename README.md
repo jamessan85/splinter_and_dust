@@ -42,7 +42,8 @@ There are two parts to the site. A trade part and a customer part. Trade users p
 4. Create test logins for both trade and customer to see the differences and upload products on the trade logins to see how the accounts work.
 
 ## Testing
-Testing was done was with the help of friends and colleagues using multiple devices. 
+Testing was done was with the help of friends and colleagues using multiple devices and then reported back to myself any issues that were found.
+
  
 ### Issues found
 
@@ -59,3 +60,6 @@ customer = stripe.Charge.create(
     card=form.cleaned_data['stripe_id'],
  )
  ```
+
+- Issue with the customer user model not migrating.
+- This issue was caused when I decided to use the customer user model after making my first migration - after search on various forums it seemed to be the best method was to create a new project and copy and paste everything into the new project and then run the migrations again. 
