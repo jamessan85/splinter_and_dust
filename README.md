@@ -43,7 +43,7 @@ There are two parts to the site. A trade part and a customer part. Trade users p
 
 ## Testing
 Testing was done was with the help of friends and colleagues using multiple devices and then reported back to myself any issues that were found.
-
+Stripe payments is in test mode - please use credit card number 5555 5555 5555 4444 in order to test stripe payments.
  
 ### Issues found
 
