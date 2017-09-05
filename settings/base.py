@@ -144,3 +144,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TINYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", 'js', 'tinymce', 'tinymce.min.js')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

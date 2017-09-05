@@ -1,5 +1,85 @@
 [
 {
+    "model": "sessions.session",
+    "pk": "1659bydnsijm18a7c9hy1m7noo744ob2",
+    "fields": {
+        "session_data": "ZjJkZTRhODlkYjA2MjI4YWRlYzk0YTg5YmQyODc0NTFmZTZhODExNDp7fQ==",
+        "expire_date": "2017-08-16T18:41:06.804Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "45tvfmoiuhnmsz2qgeaoxe1m2x9njttz",
+    "fields": {
+        "session_data": "YTM3N2IxYWNiMGI2NzEwMDNlYWJjY2MxOGU4ZDI2Y2U0N2ZiZTE3YTp7Il9hdXRoX3VzZXJfaGFzaCI6ImY5ZTIyMTkyYTI0ZjlhNjdmMTczODMzM2E2YmVmZGFjYjI1OGZjMjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxNCJ9",
+        "expire_date": "2017-08-04T14:18:26.482Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ba33x0quqj8s7rgpwk27xfts2x4ve11g",
+    "fields": {
+        "session_data": "ZTc4NjBkN2M0ZTNjNWYwMzcyODUxY2E2YjExOTI3OGExZDU5NmZiODp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc3NGQ4YzExZDAzMTIyOWVmMTQwM2RjZGNhZDBkZGIyMGVlZjM4ODEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiMzIifQ==",
+        "expire_date": "2017-09-01T08:44:48.588Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "etesgdr635j9kjloxp03sbthbcx7q7oe",
+    "fields": {
+        "session_data": "ZjJkZTRhODlkYjA2MjI4YWRlYzk0YTg5YmQyODc0NTFmZTZhODExNDp7fQ==",
+        "expire_date": "2017-08-16T18:39:46.881Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hg2asba7m79qcvppwdzk2r7x4eyqp6fa",
+    "fields": {
+        "session_data": "YTI4MGZmMGQ0N2JkNzQwNDhiZTI4YzU2YTBlN2ZhYjVjZjc4ZTA3Mjp7Il9hdXRoX3VzZXJfaGFzaCI6IjM1ZDQ2OGYxMDZmMTk3NGE5NjczODk1MDJkZDUyNDc3YzdkYzBmOTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiOCJ9",
+        "expire_date": "2017-08-02T16:29:14.543Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "k9d1wxm64kjxiysns0vm3g8ra7nizx7a",
+    "fields": {
+        "session_data": "YzEyNzhiMzA5ZGUxNjY2ZTExMjE0NWU4NDBmYjFlYWQ2Njg1YTk3NDp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc4YTE1NjYxM2E0ODY2YWViZGQ4OGZhZjc0ZjUxYWMzODc5OWNhNzgiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiNTUifQ==",
+        "expire_date": "2017-09-01T10:18:56.983Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lmzbgr85z4g3e0hov5jipezujlkztsho",
+    "fields": {
+        "session_data": "ZTc4NjBkN2M0ZTNjNWYwMzcyODUxY2E2YjExOTI3OGExZDU5NmZiODp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc3NGQ4YzExZDAzMTIyOWVmMTQwM2RjZGNhZDBkZGIyMGVlZjM4ODEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiMzIifQ==",
+        "expire_date": "2017-08-10T17:23:18.055Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lqsmojtiuea2urpsxk4ky1jn8l1p8kia",
+    "fields": {
+        "session_data": "YTI4MGZmMGQ0N2JkNzQwNDhiZTI4YzU2YTBlN2ZhYjVjZjc4ZTA3Mjp7Il9hdXRoX3VzZXJfaGFzaCI6IjM1ZDQ2OGYxMDZmMTk3NGE5NjczODk1MDJkZDUyNDc3YzdkYzBmOTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJ0cmFkZWxvZ2lucy5iYWNrZW5kcy5FbWFpbEF1dGgiLCJfYXV0aF91c2VyX2lkIjoiOCJ9",
+        "expire_date": "2017-08-02T16:35:09.327Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "mf6oc595u2evc3c3obgzo3n49govqrfz",
+    "fields": {
+        "session_data": "ZjJkZTRhODlkYjA2MjI4YWRlYzk0YTg5YmQyODc0NTFmZTZhODExNDp7fQ==",
+        "expire_date": "2017-08-16T18:39:28.829Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "p5kdn5d2o112224m3rgskets0jeibb0g",
+    "fields": {
+        "session_data": "ZjJkZTRhODlkYjA2MjI4YWRlYzk0YTg5YmQyODc0NTFmZTZhODExNDp7fQ==",
+        "expire_date": "2017-08-16T18:38:40.238Z"
+    }
+},
+{
     "model": "products.product",
     "pk": 24,
     "fields": {
@@ -116,7 +196,7 @@
     "pk": 32,
     "fields": {
         "password": "pbkdf2_sha256$36000$StnGuzu5Yq7H$sTK2smvxiQvkAY/nscKKkMfXozqvB+uuFTCiVXhPOoM=",
-        "last_login": "2017-08-01T09:40:23.890Z",
+        "last_login": "2017-08-18T08:44:48.570Z",
         "is_superuser": false,
         "username": "artyfart@gmail.com",
         "first_name": "",
@@ -263,7 +343,7 @@
     "pk": 48,
     "fields": {
         "password": "pbkdf2_sha256$36000$GGYhFJalPacj$rPN74d1juQpx0H/ZMQi9NZyLV3uKDiCOCqU6C5EwiyM=",
-        "last_login": "2017-07-31T20:48:30.833Z",
+        "last_login": "2017-08-25T14:13:57.391Z",
         "is_superuser": false,
         "username": "jamestest10@gmail.com",
         "first_name": "",
@@ -358,6 +438,69 @@
         "date_joined": "2017-07-30T21:23:25.239Z",
         "stripe_id": "ch_1AlOsjIi1kngl4QAkOcx75Pi",
         "subscription_end": "2017-08-27T21:23:27.587Z",
+        "user_type": "T",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tradelogins.user",
+    "pk": 53,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$dm8vEfwmGJfO$dk9QQ+r2sxb2j4f9ujoexDZR5w3qaSrbpolRpYj0bOs=",
+        "last_login": "2017-08-02T18:07:04.031Z",
+        "is_superuser": false,
+        "username": "happyface@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "happyface@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-08-02T18:07:03.648Z",
+        "stripe_id": "",
+        "subscription_end": "2017-08-02T18:07:03.648Z",
+        "user_type": " ",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tradelogins.user",
+    "pk": 54,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$NA2xny3PA92U$2AtrA9YJ7QWm+OSzP6mgTofIoYeLzRaMwRSOlo2jrqw=",
+        "last_login": "2017-08-02T18:49:46.009Z",
+        "is_superuser": true,
+        "username": "jamessandersoon@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "jamessandersoon@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2017-08-02T18:49:35.739Z",
+        "stripe_id": "",
+        "subscription_end": "2017-08-02T18:49:35.739Z",
+        "user_type": " ",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tradelogins.user",
+    "pk": 55,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$f1mC7afrg6qk$NYI2lT1b2zsPiFHK0Hjys0WTIg/2frj6HdLE0R+ktcc=",
+        "last_login": "2017-08-18T10:18:56.966Z",
+        "is_superuser": false,
+        "username": "plinkyplonk@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "plinkyplonk@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-08-18T10:18:54.959Z",
+        "stripe_id": "ch_1As7YtIi1kngl4QAu2pqO3Bh",
+        "subscription_end": "2017-09-15T10:18:56.771Z",
         "user_type": "T",
         "groups": [],
         "user_permissions": []
@@ -488,5 +631,18 @@
         "price": "20.00",
         "product_info": "T-Rex printer, freindly enough for Katy Perry, mean enough to make your rooooooooooooar."
     }
+},
+{
+    "model": "tradelogins.purchase",
+    "pk": 16,
+    "fields": {
+        "stripe_id": "tok_1Amj0pIi1kngl4QAg8ciXuW0",
+        "user": [
+            "artyfart@gmail.com"
+        ],
+        "product": 25,
+        "title": "T-Rex",
+        "price": "20.00",
+        "product_info": "T-Rex printer, freindly enough for Katy Perry, mean enough to make your rooooooooooooar."
+    }
 }
-]
